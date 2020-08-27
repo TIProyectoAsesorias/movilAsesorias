@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "298909731902",
+    "firebase_url": "https://asesores-utch.firebaseio.com",
+    "project_id": "asesores-utch",
+    "storage_bucket": "asesores-utch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298909731902:android:e487a04c6bc6b8296e956f",
+        "android_client_info": {
+          "package_name": "com.asesorias"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298909731902-5m3nvusil8gl159aj98q1sm7i1kn2v4l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOTgQ8sG4LAKsiipV5lHiQXFO3dvngGmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298909731902-5m3nvusil8gl159aj98q1sm7i1kn2v4l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
