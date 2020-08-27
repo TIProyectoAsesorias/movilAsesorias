@@ -21,7 +21,8 @@ class Materia extends Component {
         tipo: '',
         id: ''
       },
-      id : props.route.params
+      id : props.route.params,
+      imagen: ''
     }
     this.datosMateria = this.datosMateria.bind(this)
   }
@@ -30,20 +31,40 @@ class Materia extends Component {
     let materia = {}
     let materias = firestore()
       .collection('materias')
-      .where('id', '==', this.state.id)
+      .doc(this.state.id)
+      //.where('id', '==', this.state.id)
       .get()
     materias.then(doc => {
-      console.log(doc.docs)
-      if(doc.size === 1){
-        doc.docs.map(snapshot => {
-          console.log(snapshot.data().id)
-          materia = {
-            id: snapshot.data().id
-          }
-        })
+      let info = doc.data()
+      if(doc.exists){
+        materia = {
+          docentes: info.docentes,
+          nombre: info.nombre,
+          tipo: info.tipo,
+          id: doc.id
+        }
       }
+      this.setState({materia})
+      let imagen = ''
+      switch (this.state.materia.tipo) {
+        case "habilidades GyD":
+          imagen = require('../../assets/g.png')
+          break;
+        case "lenguas y metodos":
+          imagen = require('../../assets/lym.png')
+          break;
+        case "ciencias basicas":
+          imagen = require('../../assets/cba.png')
+          break;
+        case "formacion cientifica":
+          imagen = require('../../assets/fc.png')
+          break;
+        case "formacion tecnologica":
+          imagen = require('../../assets/ft.png')
+          break;
+      }
+      this.setState({imagen})
     })
-    this.setState({materia})
   }
 
   componentDidMount() {
@@ -58,19 +79,22 @@ class Materia extends Component {
           keyboardShouldPersistTaps='handled'
         >
           <StatusBar backgroundColor='#005511' barStyle='light-content' />
-          <View style={{ flexDirection: 'row', marginTop: HEIGHT / 50 }}>
-          {/* <ImageBackground> */}
-            <View style={{ justifyContent: 'center' }}>
+          <View style={{ flexDirection: 'row' }}>
+          <ImageBackground source={this.state.imagen} style={styles.imagen} >
+            <View style={{ justifyContent: 'space-around', backgroundColor: '#0003', marginTop: HEIGHT/48 }}>
               <Text style={styles.titulo}>
-                {}
+                {this.state.materia.nombre}
               </Text>
               <Text style={styles.titulo}>
                 Docentes
               </Text>
             </View>
-          {/* </ImageBackground> */}
+          </ImageBackground>
           </View>
           <View style={styles.opciones}>
+            <View>
+              
+            </View>
             {/* {this.state.materia.map((item, index) => {
               let imagen = ''
               switch (item.tipo) {
@@ -128,6 +152,7 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: HEIGHT / 22,
     textAlign: 'center',
+    color: '#fff'
   },
   opciones: {
     marginTop: HEIGHT / 15,
@@ -149,8 +174,8 @@ const styles = StyleSheet.create({
   },
   imagen: {
     flex: 1,
-    borderRadius: 17,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    height: HEIGHT/6,
   },
   textoboton: {
     fontSize: HEIGHT / 27,

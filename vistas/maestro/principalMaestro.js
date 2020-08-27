@@ -191,7 +191,7 @@ function Menu(props){
           <Icon name='person-circle' color='#fff' size={HEIGHT/15} />
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-          <Text style={{color: '#fff', fontSize: HEIGHT/40}}>
+          <Text style={{color: '#fff', fontSize: HEIGHT/50, textAlign: 'center'}}>
             {usuario.nombre}
           </Text>
         </View>

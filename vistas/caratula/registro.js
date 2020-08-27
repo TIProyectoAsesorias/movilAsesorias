@@ -92,7 +92,18 @@ class Login extends Component {
               matricula: matricula,
               nombre: nombre,
               tipo: tipo,
-              horario: {},
+              horario: {
+                lunesEntrada: "",
+                lunesSalida: "",
+                martesEntrada: "",
+                martesSalida: "",
+                miercolesEntrada: "",
+                miercolesSalida: "",
+                juevesEntrada: "",
+                juevesSalida: "",
+                viernesEntrada: "",
+                viernesSalida: "",
+              },
               materias: [],
               tutor: false
             })

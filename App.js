@@ -2,7 +2,6 @@ import 'react-native-gesture-handler'
 import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import NetInfo from "@react-native-community/netinfo";
 
 import Inicio from './vistas/caratula/inicio'
 import Login from './vistas/caratula/login'
