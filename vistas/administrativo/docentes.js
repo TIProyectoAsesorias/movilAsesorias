@@ -76,7 +76,6 @@ class Docentes extends Component {
         </View>
         <View style={styles.opciones}>
           {this.state.todosMaestros.map((item, index) => {
-            console.log(this.state.todosMaestros)
             return (
               <TouchableHighlight key={index}>
                 <View>

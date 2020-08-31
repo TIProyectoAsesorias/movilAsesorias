@@ -28,7 +28,10 @@ var usuario = {
   email: '',
   matricula: '',
   nombre: '',
-  tipo: ''
+  tipo: '',
+  horario: {},
+  materias: [],
+  tutor: false
 }
 
 if(auth().currentUser){
@@ -43,7 +46,6 @@ if(auth().currentUser){
       })
     }
   })
-  console.log(usuario)
 }
 
 const Notificacion = () => {

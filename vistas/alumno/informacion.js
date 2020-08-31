@@ -16,21 +16,25 @@ var usuario = {
   tipo: ''
 }
 
-if(auth().currentUser){
-  firestore()
-  .collection('usuarios')
-  .where('email', '==', auth().currentUser.email)
-  .get()
-  .then(doc => {
-    if(doc.size==1){
-      doc.docs.map(snapshot => {
-        usuario = snapshot.data()
-      })
-    }
-  })
+class Informacion extends Component{
+
+componentDidMount(){
+  if(auth().currentUser){
+    firestore()
+    .collection('usuarios')
+    .where('email', '==', auth().currentUser.email)
+    .get()
+    .then(doc => {
+      if(doc.size==1){
+        doc.docs.map(snapshot => {
+          usuario = snapshot.data()
+        })
+      }
+    })
+  }
 }
 
-const Informacion = () => {
+render() {
   return(
     <View>
       <View style={styles.general}>
@@ -56,6 +60,8 @@ const Informacion = () => {
       </View>
     </View>
   )
+}
+
 }
 
 const styles = StyleSheet.create({

@@ -86,7 +86,7 @@ const BienvenidoScreen = ({navigation}) => (
   <SStack.Navigator screenOptions={{
     headerStyle: { height: HEIGHT / 10, backgroundColor: '#005511' }
   }}>
-    <SStack.Screen name='Inicio' component={Inicio} options={{
+    <SStack.Screen name='Bienvenido' component={Inicio} options={{
       headerLeft: () => (
         <Icon.Button name='menu-outline' size={HEIGHT/18} backgroundColor='#005511' onPress={() => navigation.openDrawer()} />
       ),
