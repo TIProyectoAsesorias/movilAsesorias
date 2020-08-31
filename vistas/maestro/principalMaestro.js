@@ -88,7 +88,7 @@ const RegistrosScreen = ({navigation}) => (
   <GEStack.Navigator screenOptions={{
     headerStyle: { height: HEIGHT / 10, backgroundColor: '#005511' },
     
-  }}>
+  }} initialRouteName='Cuatrimestral'>
     <GEStack.Screen name='Registros' component={Registros} options={{
       headerLeft: () => (
         <Icon.Button name='menu-outline' size={HEIGHT/18} backgroundColor='#005511' onPress={() => navigation.openDrawer()} />
