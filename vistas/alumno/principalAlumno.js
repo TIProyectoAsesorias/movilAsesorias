@@ -16,7 +16,7 @@ import Horario from './horario'
 import Informacion from './informacion'
 import Inicio from './inicio'
 import Materia from './materia'
-import SolicitudEniviada from './solicitudEnviada' //Puede cambiarse a una pantalla modal
+import SolicitudEnviada from './solicitudEnviada' //Puede cambiarse a una pantalla modal
 
 const WIDTH = Dimensions.get('window').width
 const HEIGHT = Dimensions.get('window').height
@@ -151,63 +151,6 @@ const AgendaScreen = ({navigation}) => (
         <Notificacion />
       )
     }} />
-    <GEStack.Screen name='Cuatrimestral' component={Cuatrimestral} options={{
-      headerLeft: () => (
-        <Icon.Button name='menu-outline' size={HEIGHT/18} backgroundColor='#005511' onPress={() => navigation.openDrawer()} />
-      ),
-      headerTitleStyle: {alignSelf: 'center'},
-      title: <View>
-          <View style={styles.img}>
-            <TouchableHighlight onPress={() => { RootNavigation.navigate('Bienvenido') }}>
-              <Image
-                source={require('../../assets/AS.png')}
-                style={styles.imagen}
-              />
-            </TouchableHighlight>
-          </View>
-        </View>,
-      headerRight: () => (
-        <Notificacion />
-      )
-    }} />
-    <GEStack.Screen name='Por materia' component={Materia} options={{
-      headerLeft: () => (
-        <Icon.Button name='menu-outline' size={HEIGHT/18} backgroundColor='#005511' onPress={() => navigation.openDrawer()} />
-      ),
-      headerTitleStyle: {alignSelf: 'center'},
-      title: <View>
-          <View style={styles.img}>
-            <TouchableHighlight onPress={() => { RootNavigation.navigate('Bienvenido') }}>
-              <Image
-                source={require('../../assets/AS.png')}
-                style={styles.imagen}
-              />
-            </TouchableHighlight>
-          </View>
-        </View>,
-      headerRight: () => (
-        <Notificacion />
-      )
-    }} />
-    <GEStack.Screen name='Tutoría' component={Tutoria} options={{
-      headerLeft: () => (
-        <Icon.Button name='menu-outline' size={HEIGHT/18} backgroundColor='#005511' onPress={() => navigation.openDrawer()} />
-      ),
-      headerTitleStyle: {alignSelf: 'center'},
-      title: <View>
-          <View style={styles.img}>
-            <TouchableHighlight onPress={() => { RootNavigation.navigate('Bienvenido') }}>
-              <Image
-                source={require('../../assets/AS.png')}
-                style={styles.imagen}
-              />
-            </TouchableHighlight>
-          </View>
-        </View>,
-      headerRight: () => (
-        <Notificacion />
-      )
-    }} />
   </GEStack.Navigator>
 )
 
@@ -242,7 +185,7 @@ function Menu(props){
         </View>
       </View>
       <DrawerMenu iconName='information-circle' titleName='Información' navigation={() => props.navigation.navigate('Informacion')} />
-      <DrawerMenu iconName='book' titleName='Agenda' navigation={() => props.navigation.navigate('Agenda')} />
+      {/* <DrawerMenu iconName='book' titleName='Agenda' navigation={() => props.navigation.navigate('Agenda')} /> */}
       <DrawerMenu
         iconName='exit'
         titleName='Cerrar Sesión'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet, TouchableHighlight, View, Text, Dimensions, SafeAreaView, ScrollView, StatusBar, ImageBackground
+  StyleSheet, TouchableHighlight, View, Text, Dimensions, SafeAreaView, ScrollView, StatusBar, ImageBackground, Modal
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons'
 import auth from '@react-native-firebase/auth';
@@ -22,7 +22,8 @@ class Materia extends Component {
         id: ''
       },
       id: props.route.params,
-      imagen: ''
+      imagen: '',
+      visible: false,
     }
     this.datosMateria = this.datosMateria.bind(this)
   }
@@ -124,7 +125,7 @@ class Materia extends Component {
                   <View style={opcion.horario}>
                     <Text style={opcion.horarioTexto}>
                       Horario
-                </Text>
+                    </Text>
                     <Text style={opcion.fechaTexto}>
                       Lunes: {item.horario.lunesEntrada}-{item.horario.lunesSalida}
                     </Text>
@@ -141,14 +142,38 @@ class Materia extends Component {
                       Viernes: {item.horario.viernesEntrada}-{item.horario.viernesSalida}
                     </Text>
                   </View>
-                  <TouchableHighlight style={opcion.boton}>
+                  {/* <TouchableHighlight style={opcion.boton} onPress={() => this.setState({ visible: true })}>
                     <Text style={opcion.botonTexto}>
                       Solicitar
-                </Text>
-                  </TouchableHighlight>
+                    </Text>
+                  </TouchableHighlight> */}
                 </View>
               )
             })}
+            {/* <Modal visible={this.state.visible}>
+              <View
+                style={
+                  {flexDirection: 'row',
+                  justifyContent: 'flex-end',
+                  backgroundColor: '#005511',
+                  height: HEIGHT/9,
+                  paddingTop: HEIGHT/36,
+                  }
+                }
+              >
+                <Text style={{fontSize: HEIGHT/25, textAlign: 'center', color: '#fff'}}>
+                  Seleccione el horario
+                </Text>
+                <Icon.Button
+                  name='close-outline'
+                  backgroundColor='#005511'
+                  size={HEIGHT / 25}
+                  onPress={
+                    () => this.setState({visible: false})
+                  }
+                  />
+              </View>
+            </Modal> */}
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -180,6 +205,8 @@ const styles = StyleSheet.create({
     flex: .5,
     alignItems: 'center',
     justifyContent: 'space-between',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
   boton: {
     borderWidth: 1,
@@ -217,10 +244,14 @@ const styles = StyleSheet.create({
 const opcion = StyleSheet.create({
   vista: {
     height: HEIGHT / 2.845,
-    width: WIDTH / 2,
+    width: WIDTH / 2.2,
+    marginHorizontal: WIDTH / 45,
+    marginVertical: HEIGHT / 50,
     borderRightWidth: 1,
     borderBottomWidth: 1,
+    borderWidth: 1,
     borderRadius: 15,
+    paddingHorizontal: WIDTH / 155,
   },
   maestro: {
     borderBottomWidth: 1,
